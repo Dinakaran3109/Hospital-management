@@ -1,0 +1,81 @@
+create database hospital;
+use hospital;
+CREATE TABLE Patients (
+    patient_id INT PRIMARY KEY,
+    patient_name VARCHAR(100),
+    dob DATE,
+    gender VARCHAR(10),
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    insurance_provider VARCHAR(100),
+    insurance_id VARCHAR(50),
+    blood_type VARCHAR(10),
+    allergies TEXT
+);
+CREATE TABLE Doctors (
+    doctor_id INT PRIMARY KEY,
+    doctor_name VARCHAR(100),
+    specialty VARCHAR(100),
+    phone VARCHAR(20),
+    address VARCHAR(255),
+    hospital_affiliation VARCHAR(100),
+    consultation_fee DECIMAL(10, 2)
+);
+CREATE TABLE Appointments (
+    appointment_id INT PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    appointment_date DATETIME,
+    status VARCHAR(20),
+    reason_for_visit TEXT,
+    diagnosis TEXT,INSERT INTO Patients (patient_id, patient_name, dob, gender, phone, address, insurance_provider, insurance_id, blood_type, allergies)
+VALUES
+(1, 'John Doe', '1980-05-15', 'Male', '123-456-7890', '123 Main St, City', 'Health Insurance Inc.', 'HI123456', 'O+', 'Penicillin'),
+(2, 'Jane Smith', '1975-08-22', 'Female', '234-567-8901', '456 Elm St, City', 'HealthCare Co.', 'HC789012', 'A-', NULL),
+(3, 'Michael Johnson', '1990-03-10', 'Male', '345-678-9012', '789 Oak St, City', 'MediCare Services', 'MS456789', 'B+', 'Sulfa drugs'),
+(4, 'Emily Brown', '1988-11-05', 'Female', '456-789-0123', '567 Pine St, City', 'Health Insurance Inc.', 'HI654321', 'AB-', NULL),
+(5, 'David Lee', '1972-09-30', 'Male', '567-890-1234', '678 Cedar St, City', 'HealthCare Co.', 'HC345678', 'O-', 'Shellfish'),
+(6, 'Sarah Wilson', '1985-07-18', 'Female', '678-901-2345', '890 Maple St, City', 'MediCare Services', 'MS567890', 'A+', NULL),
+(7, 'Christopher Davis', '1982-01-25', 'Male', '789-012-3456', '901 Birch St, City', 'Health Insurance Inc.', 'HI987654', 'B-', 'Pollen'),
+(8, 'Jennifer Martinez', '1995-04-12', 'Female', '890-123-4567', '345 Pinecrest Ave, City', 'MediCare Services', 'MS789012', 'O+', NULL),
+(9, 'Matthew Garcia', '1983-06-20', 'Male', '901-234-5678', '456 Birchwood Dr, City', 'HealthCare Co.', 'HC123456', 'AB+', 'Eggs'),
+(10, 'Amanda Robinson', '1989-02-14', 'Female', '012-345-6789', '567 Oakwood Ln, City', 'Health Insurance Inc.', 'HI234567', 'A-', 'Latex'),
+(11, 'Robert Nguyen', '1977-12-03', 'Male', '123-456-7890', '123 Pine St, City', 'MediCare Services', 'MS234567', 'O+', NULL),
+(12, 'Michelle King', '1981-08-17', 'Female', '234-567-8901', '456 Oak St, City', 'HealthCare Co.', 'HC567890', 'B-', 'Pollen'),
+(13, 'Daniel Miller', '1984-05-22', 'Male', '345-678-9012', '789 Elm St, City', 'Health Insurance Inc.', 'HI345678', 'AB+', 'Peanuts'),
+(14, 'Melissa Moore', '1992-03-19', 'Female', '456-789-0123', '567 Maple St, City', 'MediCare Services', 'MS456789', 'A+', NULL),
+(15, 'Christopher Hill', '1979-11-15', 'Male', '567-890-1234', '678 Cedar St, City', 'HealthCare Co.', 'HC678901', 'O-', 'Dust'),
+(16, 'Laura Clark', '1987-07-08', 'Female', '678-901-2345', '890 Birch St, City', 'Health Insurance Inc.', 'HI456789', 'B+', 'Cat dander'),
+(17, 'Kevin Scott', '1986-02-05', 'Male', '789-012-3456', '901 Oak St, City', 'MediCare Services', 'MS567890', 'AB-', 'Mold'),
+(18, 'Stephanie Young', '1990-09-21', 'Female', '890-123-4567', '345 Maple Ave, City', 'HealthCare Co.', 'HC789012', 'O+', NULL),
+(19, 'Brian Hall', '1980-04-18', 'Male', '901-234-5678', '456 Elmwood Dr, City', 'Health Insurance Inc.', 'HI890123', 'A-', 'Penicillin'),
+(20, 'Erica Walker', '1983-01-11', 'Female', '012-345-6789', '567 Cedar Ln, City', 'MediCare Services', 'MS901234', 'B+', 'Latex'),
+(21, 'Justin Perez', '1991-06-28', 'Male', '123-456-7890', '123 Oakwood St, City', 'Health Insurance Inc.', 'HI901234', 'O+', 'Pollen'),
+(22, 'Ashley Torres', '1985-03-25', 'Female', '234-567-8901', '456 Birch Ln, City', 'HealthCare Co.', 'HC012345', 'A+', 'Shellfish'),
+(23, 'Jeremy Lopez', '1982-10-12', 'Male', '345-678-9012', '789 Elmwood Ave, City', 'MediCare Services', 'MS123456', 'AB-', 'Eggs'),
+(24, 'Rachel Diaz', '1976-07-09', 'Female', '456-789-0123', '567 Maplewood Dr, City', 'Health Insurance Inc.', 'HI234567', 'O-', 'Peanuts'),
+(25, 'Gregory Adams', '1988-04-04', 'Male', '567-890-1234', '678 Cedar Ave, City', 'HealthCare Co.', 'HC345678', 'B+', 'Mold');
+    prescription TEXT,
+    notes TEXT
+);
+-- Patients data
+
+
+-- Doctors data
+INSERT INTO Doctors (doctor_id, doctor_name, specialty, phone, address, hospital_affiliation, consultation_fee)
+VALUES
+(1, 'Dr. Smith', 'Cardiology', '987-654-3210', '456 Elm St, City', 'City Hospital', 150.00),
+(2, 'Dr. Johnson', 'Pediatrics', '876-543-2109', '789 Oak St, City', 'Community Hospital', 120.00),
+(3, 'Dr. Williams', 'Orthopedics', '765-432-1098', '567 Pine St, City', 'General Hospital', 160.00),
+(4, 'Dr. Brown', 'Neurology', '654-321-0987', '678 Cedar St, City', 'Medical Center', 180.00),
+(5, 'Dr. Miller', 'Dermatology', '543-210-9876', '890 Maple St, City', 'City Hospital', 140.00);
+
+-- Appointments data
+INSERT INTO Appointments (appointment_id, patient_id, doctor_id, appointment_date, status, reason_for_visit, diagnosis, prescription, notes)
+VALUES
+(1, 1, 1, '2024-07-25 10:00:00', 'scheduled', 'Routine checkup', NULL, NULL, NULL),
+(2, 2, 2, '2024-07-26 09:30:00', 'scheduled', 'Child wellness check', NULL, NULL, NULL),
+(3, 3, 3, '2024-07-27 14:00:00', 'scheduled', 'Orthopedic consultation', NULL, NULL, NULL),
+(4, 4, 4, '2024-07-28 11:15:00', 'scheduled', 'Neurological evaluation', NULL, NULL, NULL),
+(5, 5, 5, '2024-07-29 13:45:00', 'scheduled', 'Dermatology follow-up', NULL, NULL, NULL);
+
